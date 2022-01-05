@@ -164,7 +164,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     librs_jni \
-    com.android.future.usb.accessory
+#    com.android.future.usb.accessory
 
 # Camera HAL
 PRODUCT_PACKAGES += \
@@ -278,12 +278,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.audio.monitorRotation=true
 
 # for sound trigger on DSP
-PRODUCT_PACKAGES += \
-    sound_trigger.primary.flounder
+# PRODUCT_PACKAGES += \
+#     sound_trigger.primary.flounder
 
 # for keyboard key mappings
-PRODUCT_PACKAGES += \
-	VolantisKeyboard
+# PRODUCT_PACKAGES += \
+# 	VolantisKeyboard
 
 # for launcher layout
 #PRODUCT_PACKAGES += \
@@ -329,14 +329,14 @@ endif
 
 # Add minidebug info the the boot image and the system server to support
 # diagnosing native crashes, only on eng builds.
-ifeq ($(TARGET_BUILD_VARIANT),eng)
-    # Boot image.
-    PRODUCT_DEX_PREOPT_BOOT_FLAGS += --generate-mini-debug-info
-    # System server and some of its services.
-    # Note: we cannot use PRODUCT_SYSTEM_SERVER_JARS, as it has not been expanded at this point.
-    $(call add-product-dex-preopt-module-config,services,--generate-mini-debug-info)
-    $(call add-product-dex-preopt-module-config,wifi-service,--generate-mini-debug-info)
-endif
+#ifeq ($(TARGET_BUILD_VARIANT),eng)
+#    # Boot image.
+#    PRODUCT_DEX_PREOPT_BOOT_FLAGS += --generate-mini-debug-info
+#    # System server and some of its services.
+#    # Note: we cannot use PRODUCT_SYSTEM_SERVER_JARS, as it has not been expanded at this point.
+#    $(call add-product-dex-preopt-module-config,services,--generate-mini-debug-info)
+#    $(call add-product-dex-preopt-module-config,wifi-service,--generate-mini-debug-info)
+#endif
 
 $(call inherit-product-if-exists, hardware/nvidia/tegra132/tegra132.mk)
 $(call inherit-product-if-exists, vendor/nvidia/proprietary-tegra132/tegra132-vendor.mk)

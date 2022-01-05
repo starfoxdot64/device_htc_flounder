@@ -5,8 +5,8 @@ TARGET_SCREEN_HEIGHT := 2048
 TARGET_SCREEN_WIDTH := 1536
 
 # Inherit some common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_full_tablet_wifionly.mk)
-
+#$(call inherit-product, vendor/lineage/config/common_full_tablet_wifionly.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/halium.mk)
 # Inherit device configuration
 $(call inherit-product, device/htc/flounder/aosp_flounder.mk)
 
@@ -18,8 +18,8 @@ TARGET_KERNEL_CONFIG := lineage_flounder_defconfig
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 
 # Extra Packages
-PRODUCT_PACKAGES += \
-    com.android.nfc_extras
+#PRODUCT_PACKAGES += \
+#    com.android.nfc_extras
 
 # Lineage overlays
 DEVICE_PACKAGE_OVERLAYS += device/htc/flounder/overlay-lineage
@@ -37,5 +37,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_NAME := lineage_flounder
-PRODUCT_BRAND := google
+PRODUCT_BRAND := Google
 PRODUCT_MODEL := Nexus 9
